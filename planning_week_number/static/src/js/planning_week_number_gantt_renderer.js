@@ -13,7 +13,7 @@ odoo.define("planning_week_number.GanttRenderer", function (require) {
             var self = this;
             var dateStart = false;
             var dateEnd = false;
-            var weekNumber = focusDate.clone().weeks() - 1;
+            var weekNumber = focusDate.clone().weeks();
             switch (this.state.scale) {
                 // Add week number for the day view
                 case "day":
@@ -40,8 +40,8 @@ odoo.define("planning_week_number.GanttRenderer", function (require) {
                     );
                 // Add week number for the month view
                 case "month":
-                    var firstDay = focusDate.clone().startOf("month").weeks() - 1;
-                    var lastDay = focusDate.clone().endOf("month").weeks() - 1;
+                    var firstDay = focusDate.clone().startOf("month").weeks();
+                    var lastDay = focusDate.clone().endOf("month").weeks();
                     return _.str.sprintf(
                         "%s ( W%s-W%s )",
                         focusDate.format("MMMM YYYY"),
